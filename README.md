@@ -2,8 +2,8 @@
 ## README.MD目录
 ### [1.Project introduction](#1.Project-introduction)
 ### 技术栈选型
-### 起步
-### 项目结构指南
+### [go](#go)
+### [四.项目结构指南](#四.项目结构指南)
 ### 插件使用命令
 ### 项目插件介绍
 ### 
@@ -16,7 +16,7 @@ W项目是一个前端项目，目前的功能有博客（未来会增加更多�
 使用vue2.0+vuex+vueRouter+Axios ui框架未定（可能是iview或elementUI）全家桶
 布局采用ui框架栅格系统＋flexble.js进行响应式页面rem适配
 
-# 三.起步
+# go
 ### 安装git
 ```
 自己百度兄弟
