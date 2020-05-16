@@ -8,7 +8,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home"
+    name: "Home",
+    component: nav
   },
   {
     path: "/404",
@@ -16,7 +17,7 @@ const routes = [
     component: notfind
   },
   {
-    path:"/nav",
+    path: "/nav",
     name: "nav",
     component: nav
   }
