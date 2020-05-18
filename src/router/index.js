@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: wonanjie
+ * @Date: 2020-05-13 13:43:21
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-18 09:41:13
+ */
+
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
