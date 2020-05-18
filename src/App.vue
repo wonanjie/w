@@ -1,9 +1,9 @@
 <!--
- * @Description: 
+ * @Description: 项目根组件
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-18 09:28:43
+ * @LastEditTime: 2020-05-18 12:52:32
 -->
 <template>
   <div id="app">
@@ -21,7 +21,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #8b939b;
 }
 
 #nav {

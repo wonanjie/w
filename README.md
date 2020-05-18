@@ -3,8 +3,9 @@
 ### 项目介绍
 ### 技术栈选型
 ### 起步
+### 开发规范
+### 项目常用命令
 ### 项目结构指南
-### 插件使用命令
 ### 项目插件介绍
 ======================================================================
 # 一.项目介绍
@@ -97,11 +98,7 @@ setting页面打开右上角用json打开setting文件（右上角有个打开�
     }
 }
 ```
-# 四.项目结构指南
-# 五.插件使用命令
-# 六.项目插件介绍
-# 七.Git提交信息规范化
-# 八.开发规范
+# 四.开发规范
 ## 1、文件命名
 
 `页面级文件夹`的命名统用`大写`（如：Home）,`组件级文件夹`统一用`小写`（如：badge）
@@ -217,6 +214,87 @@ setting页面打开右上角用json打开setting文件（右上角有个打开�
   ```
 
   （2）涉及到公共样式的坚决使用`common`中的样式去做，方便后期统一维护，所有涉及到色值到全部加到`CONST`中方便管理
-
+# 五.项目常用命令
+## 5.1 git命令
+  ```
+  本地分支名:[branch_name] 远程分支名(不带origin):[branch_origin_name]
+  1.拉取远程代码(每天都要执行一次)
+  git pull
+  
+  2.改动添加(push命令前必执行)
+  git add .
+  
+  3.提交内容注释(push命令前必执行)
+  git commit -m"注释内容"
+  
+  4.提交代码(必须执行前面2个命令)
+  git push
+  
+  5.查看本地分支
+  git branch
+  
+  6.查看远程分支
+  git branch -r
+  
+  7.切换当前分支至指定分支
+  git checkout [branch_name]
+  
+  8.根据远程分支创建本地分支 并跟踪与切换
+  git checkout -b [branch_name] origin/[branch_origin_name]
+  
+  9.把指定分支内容合并到当前分支
+  git merge [branch_name]
+  
+  10.删除本地分支
+  git branch -d [branch_name]
+  
+  11.删除远程分支(所有删除远程分支操作都是危险操作)
+  git push origin --delete [branch_origin_name]
+  
+  12.根据本地分支创建远程分支(此操作不会跟踪)
+  git push origin [branch_name]:[branch_origin_name]
+  
+  13.刷新远程分支(最好pull命令前执行一次)
+  git remote update origin --prune
+  ```
+## 5.2 yarn命令
+  ```
+  插件名:[plugin_name]
+  注意:需在项目目录执行下面命令
+  生产环境:打包上线后需要的依赖   开发环境:开发需要的依赖
+  
+  1.给当前项目添加插件至 生产与开发环境(请勿把不必要的东西加入生产环境)
+  yarn add [plugin_name]
+  
+  2.给当前项目添加插件至 开发环境
+  yarn add [plugin_name] --dev
+  
+  3.清除缓存
+  yarn cache clean
+  
+  4.删除依赖
+  yarn remove [plugin_name]
+  
+  5.安装所有依赖
+  yarn install
+  
+  6.建立所有依赖包各自需要的连接(有些依赖包需要执行，建议每次安装依赖就执行一次)
+  yarn link 
+  
+  7.本地启动项目
+  yarn serve
+  
+  8.打包
+  yarn build
+  
+  ```
+## 5.3 其他命令
+  ```
+  1.eslint规范化全局检测
+  yarn lint
+  
+  ```
+# 六.项目结构指南
+# 七.项目插件介绍
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
