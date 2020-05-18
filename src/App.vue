@@ -1,3 +1,10 @@
+<!--
+ * @Description: 项目根组件
+ * @Author: wonanjie
+ * @Date: 2020-05-13 13:43:21
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-18 08:26:22
+-->
 <template>
   <div id="app">
     <!-- <div id="nav">
