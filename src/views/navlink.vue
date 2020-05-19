@@ -1,6 +1,13 @@
+<!--
+ * @Description: 
+ * @Author: wyk
+ * @Date: 2020-05-15 15:26:31
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-18 08:50:20
+-->
 <template>
-    <a>{{ name }}</a>
-    <!-- <router-view /> -->
+  <a>{{ name }}</a>
+  <!-- <router-view /> -->
 </template>
 
 <script>

@@ -2,8 +2,8 @@
  * @Description:路由配置
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-18 12:52:44
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-18 10:58:52
  */
 
 import Vue from "vue";

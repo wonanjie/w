@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: wyk
+ * @Date: 2020-05-15 14:40:18
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-18 09:43:36
+-->
 <template>
   <div>
     <navlink name="Home |"></navlink>
@@ -19,7 +26,7 @@ export default {
 
 <style scoped lang="scss">
 div {
-  height: 50px;
+  height: 0.5rem;
   background-color: black;
   border-radius: 15px;
   width: 75%;
