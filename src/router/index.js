@@ -3,31 +3,44 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-18 10:58:52
+ * @LastEditTime: 2020-05-20 08:58:09
  */
 
 import Vue from "vue";
 import VueRouter from "vue-router";
-import nav from "../components/navigation";
-import notfind from "../components/404";
+import Home from "@/views/Home.vue";
+import ArticleList from "@/views/ArticleList.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: nav
+    name: "home",
+    component: Home,
+    redirect: "/articleList",
+    children: [
+      {
+        path: "/articleList",
+        name: "articleList",
+        component: ArticleList
+      },
+      {
+        path: "/articleDetail",
+        name: "articleDetail",
+        component: () => import("@/views/ArticleDetail.vue")
+      }
+    ]
   },
   {
-    path: "/404",
-    name: "error",
-    component: notfind
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/Login.vue")
   },
   {
-    path: "/nav",
-    name: "nav",
-    component: nav
+    path: "/administration",
+    name: "administration",
+    component: () => import("@/views/Administration.vue")
   }
 ];
 const router = new VueRouter({

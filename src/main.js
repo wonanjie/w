@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-18 09:29:12
+ * @LastEditTime: 2020-05-20 08:57:59
  */
 
 import Vue from "vue";
@@ -12,13 +12,19 @@ import VueAxios from "vue-axios";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "amfe-flexible";
-import Element from "element-ui";
+import { Container, Main, Aside, Row, Col, Card } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-
+import "element-ui/lib/theme-chalk/display.css";
+import "font-awesome/scss/font-awesome.scss";
+import "@/assets/scss/reset.scss";
+import "@/assets/scss/base.scss";
 Vue.use(VueAxios, axios);
-Vue.use(Element);
-
+Vue.use(Container);
+Vue.use(Main);
+Vue.use(Aside);
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Card);
 Vue.config.productionTip = false;
 
 new Vue({

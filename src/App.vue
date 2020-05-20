@@ -2,48 +2,31 @@
  * @Description: 项目根组件
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-18 09:42:04
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-20 17:12:33
 -->
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/404">New Page</router-link> |
-      <router-link to="/nav">Nav</router-link> |
-    </div> -->
-    <router-view />
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
-
-<style lang="scss">
-@mixin flex-center() {
-  display: flex;
-  justify-content: center;
-}
-* {
-  margin: 0px;
-  padding: 0px;
-}
-body {
-  background-color: rgb(58, 58, 65);
-  // background-color: rgb(255, 255, 255);
-}
-#app {
-  @include flex-center();
-}
-#nav {
-  @include flex-center();
-  width: 75%;
-  height: 50px;
-  color: white;
-  background-color: rgb(0, 0, 0);
-  font: {
-    family: arial;
-    weight: bold;
+<script>
+import CanvasNest from "canvas-nest.js";
+const config = {
+  color: "167, 167, 167", // 线条颜色
+  pointColor: "167, 167, 167", // 节点颜色
+  opacity: 1, // 线条透明度
+  count: 100, // 线条数量
+  zIndex: 99 // 画面层级
+};
+export default {
+  name: "app",
+  created() {
+    this.$nextTick(() => {
+      new CanvasNest(document.getElementById("app"), config);
+    });
   }
-  border: {
-    radius: 15px;
-  }
-}
-</style>
+};
+</script>
