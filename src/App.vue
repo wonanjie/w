@@ -3,37 +3,30 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-18 12:52:32
+ * @LastEditTime: 2020-05-20 13:27:45
 -->
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="container">
+      <router-view></router-view>
     </div>
-    <router-view />
   </div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #8b939b;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import CanvasNest from "canvas-nest.js";
+const config = {
+  color: "0, 255, 255", // 线条颜色
+  pointColor: "255, 0, 255", // 节点颜色
+  opacity: 1, // 线条透明度
+  count: 100, // 线条数量
+  zIndex: 99 // 画面层级
+};
+export default {
+  name: "app",
+  created() {
+    this.$nextTick(() => {
+      new CanvasNest(document.getElementById("app"), config);
+    });
   }
-}
-</style>
+};
+</script>
