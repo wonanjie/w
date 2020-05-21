@@ -3,11 +3,11 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 16:28:36
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-20 15:40:34
+ * @LastEditTime: 2020-05-21 14:18:57
 -->
 <template>
   <el-row class="link-nav">
-    <el-card class="card" :body-style="{ padding: '0px' }">
+    <el-card class="card pt15 pb15" :body-style="{ padding: '0px' }">
       <el-row>
         <div>
           <i class="fa fa-home" aria-hidden="true"></i>
@@ -18,6 +18,12 @@
         <div>
           <i class="fa fa-folder" aria-hidden="true"></i>
           <span>专栏</span>
+        </div>
+      </el-row>
+      <el-row>
+        <div>
+          <i class="fa fa-archive" aria-hidden="true"></i>
+          <span>归档</span>
         </div>
       </el-row>
       <el-row>
@@ -47,25 +53,20 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "@/assets/scss/color.scss";
 .link-nav {
   width: 100%;
-  .card {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    .el-row {
-      color: $GRAY_555555;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      &:hover {
-        background-color: $WHITE_f9f9f9;
-      }
-      & > div {
-        margin-right: 20px;
-        margin-left: 20px;
-        span {
-          margin-left: 10px;
-        }
+  .card .el-row {
+    color: $colorIcon;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:hover {
+      background-color: $colorHover;
+    }
+    & > div {
+      margin-right: 20px;
+      margin-left: 20px;
+      span {
+        margin-left: 10px;
       }
     }
   }

@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-20 15:11:11
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-20 16:34:28
+ * @LastEditTime: 2020-05-21 10:15:04
 -->
 <template>
   <el-row class="sign">
@@ -21,16 +21,15 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "@/assets/scss/color.scss";
 .sign {
   height: 130px;
-  background-color: $BLACK_222222;
+  background-color: $colorSign;
   color: $WHITE;
   & > .el-row:first-child {
-    font-size: 20px;
+    // font-size: 20px;
   }
   & > .el-row:last-child {
-    font-size: 13px;
+    // font-size: 14px;
   }
 }
 </style>
