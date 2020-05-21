@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-20 17:12:33
+ * @LastEditTime: 2020-05-21 17:37:15
 -->
 <template>
   <div id="app">
@@ -27,6 +27,24 @@ export default {
     this.$nextTick(() => {
       new CanvasNest(document.getElementById("app"), config);
     });
+  },
+  mounted() {
+    setTimeout(() => {
+      window.L2Dwidget.init({
+        pluginRootPath: "live2dw/",
+        pluginJsPath: "lib/",
+        pluginModelPath: "live2d-widget-model-shizuku/assets/",
+        tagMode: false,
+        debug: false,
+        model: {
+          jsonPath:
+            "../live2dw/live2d-widget-model-shizuku/assets/shizuku.model.json"
+        },
+        display: { position: "left", width: 300, height: 400 },
+        mobile: { show: true },
+        log: false
+      });
+    }, 1000);
   }
 };
 </script>

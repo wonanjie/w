@@ -1,11 +1,27 @@
 /*
- * @Description: 公共样式
+ * @Description: 公共变量与样式
  * @Author: wonanjie
  * @Date: 2020-05-20 12:49:28
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-20 16:35:53
+ * @LastEditTime: 2020-05-21 15:40:41
  */
 
+/*===============变量==============*/
+
+/*主题颜色值*/
+$colorHover:#f9f9f9; // 全项目划过菜单时hover颜色
+$colorSign:#222222; //主页背景字体重点风格颜色
+$colorIcon:#555555; //菜单文本图标默认颜色
+$colorDivider:#eeeeee; //边框分割线颜色
+$colorTextSecondary:#909399; //全项目次要字体颜色
+
+/*固定颜色值*/
+$WHITE:white;
+
+
+
+/*===============样式==============*/
+//主容器
 .container {
     position: relative;
     width: 74.5%;
@@ -13,8 +29,69 @@
     margin-left: auto;
 }
 
-/*scss真是酷到翻皮水*/
-@for $i from 1 through 100 {
+//字体加粗
+.fb {
+    font-weight: bold;
+}
+
+//显示隐藏
+.block {
+    display: block;
+}
+
+.hide {
+    display: none !important;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tr {
+    text-align: right
+}
+
+.tc {
+    text-align: center
+}
+
+
+
+//浮动
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+//清除浮动(挂在浮动元素的父元素即可)
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.clearfloat {
+    zoom: 1
+}
+
+//透明度0.5
+.transparent-50{
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+.transparent-100{
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+
+//边距
+@for $i from 1 through 130 {
     .mt#{$i} {
         margin-top: #{$i}px;
     }
@@ -45,5 +122,12 @@
 
     .pb#{$i} {
         padding-bottom: #{$i}px;
+    }
+}
+
+//字体样式
+@for $i from 8 through 26 {
+    .fz#{$i} {
+        font-size: #{$i}px;
     }
 }
