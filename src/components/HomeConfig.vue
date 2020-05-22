@@ -3,7 +3,7 @@
  * @Author: wyk
  * @Date: 2020-05-21 13:18:18
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-21 21:03:00
+ * @LastEditTime: 2020-05-22 15:06:12
 -->
 <template>
   <div>
@@ -22,6 +22,7 @@
 </template>
 <script>
 export default {
+  name: "home-config",
   data() {
     return {
       textarea: ""
