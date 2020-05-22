@@ -2,8 +2,8 @@
  * @Description: 右上角导航
  * @Author: wonanjie
  * @Date: 2020-05-19 16:28:36
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-21 14:18:57
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-21 13:47:14
 -->
 <template>
   <el-row class="link-nav">
@@ -41,7 +41,7 @@
       <el-row>
         <div>
           <i class="fa fa-search" aria-hidden="true"></i>
-          <span>搜索</span>
+          <router-link to="/adminPage" tag="span">搜索</router-link>
         </div>
       </el-row>
     </el-card>

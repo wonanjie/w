@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-21 10:12:35
+ * @LastEditTime: 2020-05-21 14:07:40
  */
 
 import Vue from "vue";
@@ -15,13 +15,19 @@ import store from "./store";
 import {
   Container,
   Main,
+  Header,
   Aside,
   Row,
   Col,
   Card,
   Divider,
   Button,
-  Link
+  Link,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  Submenu,
+  Input
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -30,6 +36,7 @@ import "@/assets/scss/reset.scss";
 Vue.use(VueAxios, axios);
 Vue.use(Container);
 Vue.use(Main);
+Vue.use(Header);
 Vue.use(Aside);
 Vue.use(Row);
 Vue.use(Col);
@@ -37,6 +44,11 @@ Vue.use(Card);
 Vue.use(Divider);
 Vue.use(Button);
 Vue.use(Link);
+Vue.use(Menu);
+Vue.use(MenuItem);
+Vue.use(MenuItemGroup);
+Vue.use(Submenu);
+Vue.use(Input);
 Vue.config.productionTip = false;
 
 new Vue({

@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-21 10:06:30
+ * @LastEditTime: 2020-05-21 13:30:07
  */
 
 import Vue from "vue";
@@ -41,6 +41,18 @@ const routes = [
     path: "/administration",
     name: "administration",
     component: () => import("@/views/Administration.vue")
+  },
+  {
+    path: "/adminPage",
+    name: "adminPage",
+    component: () => import("@/views/adminPage"),
+    children: [
+      {
+        path: "/homePageConfig",
+        name: "homePageConfig",
+        component: () => import("@/views/homePageConfig")
+      }
+    ]
   }
 ];
 const router = new VueRouter({
