@@ -2,8 +2,8 @@
  * @Description:打包入口文件
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-22 16:09:39
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-24 17:17:43
  */
 
 import Vue from "vue";
@@ -50,6 +50,9 @@ Vue.use(MenuItemGroup);
 Vue.use(Submenu);
 Vue.use(Input);
 Vue.config.productionTip = false;
+
+axios.defaults.baseURL = process.env.VUE_APP_URL;
+console.log(`axios.defaults.baseURL : ${process.env.VUE_APP_URL}`);
 
 new Vue({
   router,

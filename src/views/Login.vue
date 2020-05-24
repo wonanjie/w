@@ -3,5 +3,35 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 14:41:12
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-24 10:56:47
+ * @LastEditTime: 2020-05-24 17:18:02
 -->
+<template>
+  <el-row>
+    <el-input v-model="input" placeholder="请输入内容"></el-input>
+    <el-button @click="login()" type="primary">login</el-button>
+  </el-row>
+</template>
+<script>
+export default {
+  name: "login",
+  data() {
+    return {
+      input: ""
+    };
+  },
+  methods: {
+    login() {
+      console.log("1111111111111111111111");
+      this.axios({
+        method: "get",
+        url: "/api/user/login",
+        data: {}
+      }).then(res => {
+        console.log(res);
+        console.log("22222222222222222");
+      });
+    }
+  }
+};
+</script>
+<style lang="scss" scoped></style>
