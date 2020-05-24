@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 16:28:36
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-22 15:14:15
+ * @LastEditTime: 2020-05-23 15:03:07
 -->
 <template>
   <el-row class="link-nav">
@@ -35,13 +35,13 @@
       <el-row>
         <div>
           <i class="fa fa-commenting" aria-hidden="true"></i>
-          <span>互动</span>
+          <router-link to="/login" tag="span">互动(login)</router-link>
         </div>
       </el-row>
       <el-row>
         <div>
           <i class="fa fa-search" aria-hidden="true"></i>
-          <router-link to="/adminPage" tag="span">搜索</router-link>
+          <router-link to="/adminPage" tag="span">搜索(admin)</router-link>
         </div>
       </el-row>
     </el-card>

@@ -3,14 +3,14 @@
  * @Author: wyk
  * @Date: 2020-05-22 14:48:40
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-22 16:50:57
+ * @LastEditTime: 2020-05-23 22:45:49
 -->
 <template>
   <el-col>
     <el-menu default-active="2" class="el-menu-vertical-demo">
-      <el-menu-item index="1">
+      <el-menu-item index="1" @click="homeConfig">
         <i class="el-icon-house"></i>
-        <router-link to="/homeConfig" tag="span">主页配置</router-link>
+        <span>主页配置</span>
       </el-menu-item>
 
       <el-submenu index="2">
@@ -18,13 +18,13 @@
           <i class="el-icon-document"></i>
           <span>文章管理</span>
         </template>
-        <span>
-          <el-menu-item index="2-1">
-            <i class="el-icon-plus" />
-            <router-link to="/newArticle" tag="span">新增文章</router-link>
-          </el-menu-item>
-        </span>
-        <el-menu-item index="2-2">
+
+        <el-menu-item index="2-1" @click="newArticle">
+          <i class="el-icon-plus" />
+          <span>新增文章</span>
+        </el-menu-item>
+
+        <el-menu-item index="2-2" @click="articleConfig">
           <i class="el-icon-edit-outline" />
           <router-link to="/articleConfig" tag="span">编辑文章</router-link>
         </el-menu-item>
@@ -39,7 +39,18 @@
 </template>
 <script>
 export default {
-  name: "side-bar"
+  name: "side-bar",
+  methods: {
+    homeConfig() {
+      this.$router.push("/homeConfig");
+    },
+    newArticle() {
+      this.$router.push("/newArticle");
+    },
+    articleConfig() {
+      this.$router.push("/articleConfig");
+    }
+  }
 };
 </script>
 <style scoped lang="scss">
