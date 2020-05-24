@@ -39,8 +39,11 @@ ssh常用命令
   cat ~/.ssh/id_rsa.pub
 
 把公钥发给我 我会设置
--拉项目： 
+-拉项目: 
   git clone git@github.com:wonanjie/w.git
+
+-测试是否链接:
+ ssh -T git@github.com
 
 -在项目目录设置git大小写敏感:
   git cofig core.ignorecase false
