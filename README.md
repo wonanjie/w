@@ -63,7 +63,7 @@ yarn install
 ```
 ### 3.1.6项目跑起来
 ```
-yarn serve
+yarn dev
 ```
 ### 3.1.7打包
 ```
@@ -105,6 +105,35 @@ setting页面打开右上角用json打开setting文件（右上角有个打开�
     }
 }
 ```
+## 3.3前后端开发调试
+### 3.3.1 下载Nginx
+ ```
+  http://nginx.org/en/download.html
+  ```
+### 3.3.2 管理员权限记事本打开目录下的conf/nginx.conf(windows)
+ ```
+  用#注释掉server{}代码块内自带的
+   #location / {
+   #    root   html;
+   #    index  index.html index.htm;
+   # }
+
+   添加下面内容即可
+  location / {
+	    proxy_pass http://localhost:8080;
+  }
+		
+	location /api/ {
+	    proxy_pass http://localhost:3000;
+	}
+  ```
+### 3.3.3 联调
+```
+请启动yarn dev 前端和后端的项目并命令开启nginx
+
+调试使用 localhost:80端口
+```
+
 # 四.开发规范
 ## 1、文件命名
 
@@ -296,7 +325,21 @@ setting页面打开右上角用json打开setting文件（右上角有个打开�
   yarn build
   
   ```
-## 5.3 其他命令
+## 5.3 Nginx命令
+  ```
+  在nginx文件目录下执行命令
+  
+  1.启动nginx服务
+  start nginx
+
+  2.停止nginx服务
+  nginx.exe -s quit
+
+  3.重启nginx服务
+  nginx.exe -s reload
+  
+  ```
+## 5.4 其他命令
   ```
   1.eslint规范化全局检测
   yarn lint
