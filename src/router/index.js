@@ -2,8 +2,8 @@
  * @Description:路由配置
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-23 15:22:13
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-24 10:53:52
  */
 
 import Vue from "vue";
@@ -40,12 +40,7 @@ const routes = [
   {
     path: "/administration",
     name: "administration",
-    component: () => import("@/views/Administration.vue")
-  },
-  {
-    path: "/adminPage",
-    name: "adminPage",
-    component: () => import("@/views/AdminPage.vue"),
+    component: () => import("@/views/Administration.vue"),
     children: [
       {
         path: "/homeConfig",
