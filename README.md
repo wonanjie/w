@@ -46,7 +46,7 @@ ssh常用命令
  ssh -T git@github.com
 
 -在项目目录设置git大小写敏感:
-  git cofig core.ignorecase false
+  git config core.ignorecase false
 
 ```
 ### 3.1.3安装node.js
