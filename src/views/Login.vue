@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 14:41:12
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-24 17:18:02
+ * @LastEditTime: 2020-05-25 14:53:07
 -->
 <template>
   <el-row>
@@ -23,7 +23,7 @@ export default {
     login() {
       console.log("1111111111111111111111");
       this.axios({
-        method: "get",
+        method: "post",
         url: "/api/user/login",
         data: {}
       }).then(res => {
