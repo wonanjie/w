@@ -3,10 +3,11 @@
  * @Author: wyk
  * @Date: 2020-05-22 15:48:29
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-22 16:25:08
+ * @LastEditTime: 2020-05-25 14:56:43
 -->
 <template>
-  <div>
+  <el-row>
+    <h2>编辑文章</h2>
     <article-card></article-card>
     <article-card></article-card>
     <article-card></article-card>
@@ -16,7 +17,7 @@
     <article-card></article-card>
     <article-card></article-card>
     <article-card></article-card>
-  </div>
+  </el-row>
 </template>
 
 <script>

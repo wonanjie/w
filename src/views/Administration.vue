@@ -2,19 +2,17 @@
  * @Description: 
  * @Author: wyk
  * @Date: 2020-05-21 10:18:10
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-24 10:52:21
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-25 15:02:33
 -->
 <template>
   <el-container>
-    <el-container>
-      <el-aside>
-        <side-bar></side-bar>
-      </el-aside>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-    </el-container>
+    <el-aside>
+      <side-bar class="mt50"></side-bar>
+    </el-aside>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
   </el-container>
 </template>
 

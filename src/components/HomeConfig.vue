@@ -3,10 +3,11 @@
  * @Author: wyk
  * @Date: 2020-05-21 13:18:18
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-22 15:06:12
+ * @LastEditTime: 2020-05-25 14:54:15
 -->
 <template>
-  <div>
+  <el-row>
+    <h2>主页配置</h2>
     <el-button round>Git</el-button>
     <el-button round icon="el-icon-link" @click="newLink">新增友联</el-button>
     <el-button round icon="el-icon-connection">管理友联</el-button>
@@ -18,7 +19,7 @@
         placeholder="请输入要添加的链接"
       ></el-input>
     </div>
-  </div>
+  </el-row>
 </template>
 <script>
 export default {

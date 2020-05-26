@@ -3,30 +3,25 @@
  * @Author: wyk
  * @Date: 2020-05-22 16:47:40
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-22 17:00:26
+ * @LastEditTime: 2020-05-25 21:57:52
 -->
 <template>
   <el-col>
-    <el-input type="textarea" autosize placeholder="请输入标题" v-model="title">
-    </el-input>
-    <div style="margin: 20px 0;"></div>
-    <el-input
-      type="textarea"
-      :autosize="{ minRows: 2, maxRows: 4 }"
-      placeholder="请输入内容"
-      v-model="content"
-    >
-    </el-input>
+    <Markdown></Markdown>
   </el-col>
 </template>
 <script>
+import Markdown from "@/components/Markdown";
 export default {
   name: "new-article",
   data() {
     return {
-      title: "",
-      content: ""
+      // title: "",
+      // content: ""
     };
+  },
+  components: {
+    Markdown
   }
 };
 </script>
