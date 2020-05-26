@@ -124,7 +124,7 @@ setting页面打开右上角用json打开setting文件（右上角有个打开�
   }
 		
 	location /api/ {
-	    proxy_pass http://localhost:3000;
+	    proxy_pass http://localhost:3000; //线上 http://106.52.206.254:3000
 	}
   ```
 ### 3.3.3 联调
