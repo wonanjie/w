@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-24 10:53:52
+ * @LastEditTime: 2020-05-27 12:27:28
  */
 
 import Vue from "vue";
@@ -61,7 +61,7 @@ const routes = [
   }
 ];
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   routes
 });
 

@@ -2,8 +2,8 @@
  * @Description: 文章列表
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-26 17:58:10
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-27 21:26:02
 -->
 <template>
   <el-row class="article-list">
@@ -97,6 +97,76 @@ export default {
   },
   components: {
     Article
+  },
+  created() {
+    // this.axios({
+    //   method: "get",
+    //   url: "/api/article/getArticleList",
+    //   params: {
+    //     page: 1
+    //   }
+    // }).then(res => {
+    //   console.log(res);
+    // });
+
+    // this.axios({
+    //   method: "get",
+    //   url: "/api/article/getArticleDetail",
+    //   params: {
+    //     id: 1
+    //   }
+    // }).then(res => {
+    //   console.log(res);
+    // });
+    // this.axios({
+    //   method: "post",
+    //   url: "/api/article/newArticle",
+    //   data: {
+    //     author: "沃南杰",
+    //     title: "sssss",
+    //     content: "sssss"
+    //   }
+    // }).then(res => {
+    //   console.log(res);
+    // });
+    // this.axios({
+    //   method: "post",
+    //   url: "/api/article/newArticle",
+    //   data: {
+    //     author: "沃南杰",
+    //     title: "xxxxx",
+    //     content: "xxxxx",
+    //     columnId: 8
+    //   }
+    // }).then(res => {
+    //   console.log(res);
+    // });
+
+    this.axios({
+      method: "get",
+      url: "/api/article/getArticleList",
+      params: {
+        page: 1
+      }
+    }).then(res => {
+      console.log(res);
+    });
+    this.axios({
+      method: "get",
+      url: "/api/article/getArticleDetail",
+      params: {
+        id: 9
+      }
+    }).then(res => {
+      console.log(res);
+    });
+
+    this.axios({
+      method: "get",
+      url: "/api/article/getColumnList"
+    }).then(res => {
+      console.log(res);
+    });
   }
   // beforeCreate() {
   //   render(this, 1);
