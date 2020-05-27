@@ -3,7 +3,7 @@
  * @Author: wyk
  * @Date: 2020-05-25 12:16:09
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-25 17:42:24
+ * @LastEditTime: 2020-05-26 12:16:42
 -->
 <template>
   <el-row>
@@ -50,7 +50,7 @@ export default {
       this.axios({
         method: "post",
         url: "/api/article/newArticle",
-        data: { author: "wonanjie", title: this.title, content: this.content }
+        data: { author: "沃南杰", title: this.title, content: this.content }
       })
         .then(res => {
           console.log("submit succesfully");
