@@ -2,18 +2,42 @@
  * @Description: 文章列表
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-27 21:26:02
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-27 14:32:24
 -->
 <template>
   <el-row class="article-list">
-    <Article :array="dataToRender"></Article>
+    <!-- <Article :array="dataToRender"></Article> -->
+    <el-card class="card" v-for="(item, index) in dataToRender" :key="index">
+      <el-row class="tc fz24">{{ item.title }}</el-row>
+      <el-row class="information tc mt5 fz12">
+        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+        <span class="ml5 mr5">发表于</span>
+        <span>{{ item.createTime }}</span>
+        <el-divider direction="vertical"></el-divider>
+        <i class="fa fa-folder-o" aria-hidden="true"></i>
+        <span class="ml5 mr5">专栏</span>
+        <span>前端</span>
+        <el-divider direction="vertical"></el-divider>
+        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        <span class="ml5 mr5">评论数</span>
+        <span>{{ item.comments }}</span>
+      </el-row>
+      <el-row class="mt40 mb40">
+        <p>
+          {{ item.content }}
+        </p>
+      </el-row>
+      <el-row type="flex" class="row-bg" justify="center">
+        <el-col :span="4"
+          ><el-button type="info" plain>阅读全文 >></el-button></el-col
+        >
+      </el-row>
+    </el-card>
   </el-row>
 </template>
 
 <script>
-import Article from "@/components/Article";
-
 const res = {
   message: " 返回成功",
   errno: 1,
@@ -95,83 +119,19 @@ export default {
       dataToRender: res.data
     };
   },
-  components: {
-    Article
-  },
-  created() {
-    // this.axios({
-    //   method: "get",
-    //   url: "/api/article/getArticleList",
-    //   params: {
-    //     page: 1
-    //   }
-    // }).then(res => {
-    //   console.log(res);
-    // });
+  components: {}
 
-    // this.axios({
-    //   method: "get",
-    //   url: "/api/article/getArticleDetail",
-    //   params: {
-    //     id: 1
-    //   }
-    // }).then(res => {
-    //   console.log(res);
-    // });
-    // this.axios({
-    //   method: "post",
-    //   url: "/api/article/newArticle",
-    //   data: {
-    //     author: "沃南杰",
-    //     title: "sssss",
-    //     content: "sssss"
-    //   }
-    // }).then(res => {
-    //   console.log(res);
-    // });
-    // this.axios({
-    //   method: "post",
-    //   url: "/api/article/newArticle",
-    //   data: {
-    //     author: "沃南杰",
-    //     title: "xxxxx",
-    //     content: "xxxxx",
-    //     columnId: 8
-    //   }
-    // }).then(res => {
-    //   console.log(res);
-    // });
-
-    this.axios({
-      method: "get",
-      url: "/api/article/getArticleList",
-      params: {
-        page: 1
-      }
-    }).then(res => {
-      console.log(res);
-    });
-    this.axios({
-      method: "get",
-      url: "/api/article/getArticleDetail",
-      params: {
-        id: 9
-      }
-    }).then(res => {
-      console.log(res);
-    });
-
-    this.axios({
-      method: "get",
-      url: "/api/article/getColumnList"
-    }).then(res => {
-      console.log(res);
-    });
-  }
   // beforeCreate() {
   //   render(this, 1);
   // }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card {
+  margin-top: 10px;
+  .information {
+    color: $colorTextSecondary;
+  }
+}
+</style>

@@ -3,7 +3,7 @@
  * @Author: wyk
  * @Date: 2020-05-22 14:48:40
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-25 17:31:43
+ * @LastEditTime: 2020-05-27 14:56:11
 -->
 <template>
   <el-row>
@@ -31,7 +31,7 @@
           </el-menu-item>
         </el-submenu>
 
-        <el-menu-item index="3">
+        <el-menu-item index="3" @click="columnConfig()">
           <i class="el-icon-setting"></i>
           <span slot="title">专栏管理</span>
         </el-menu-item>
@@ -51,6 +51,9 @@ export default {
     },
     articleConfig() {
       this.$router.push("/articleConfig");
+    },
+    columnConfig() {
+      this.$router.push("/columnConfig");
     }
   }
 };

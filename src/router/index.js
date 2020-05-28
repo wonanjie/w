@@ -2,8 +2,8 @@
  * @Description:路由配置
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-27 12:27:28
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-05-27 14:56:50
  */
 
 import Vue from "vue";
@@ -56,6 +56,11 @@ const routes = [
         path: "/newArticle",
         name: "newArticle",
         component: () => import("@/views/NewArticle.vue")
+      },
+      {
+        path: "/columnConfig",
+        name: "columnConfig",
+        component: () => import("@/views/ColumnConfig.vue")
       }
     ]
   }

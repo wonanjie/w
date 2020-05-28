@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-25 14:22:49
+ * @LastEditTime: 2020-05-27 15:02:04
  */
 
 import Vue from "vue";
@@ -28,7 +28,9 @@ import {
   MenuItem,
   MenuItemGroup,
   Submenu,
-  Input
+  Input,
+  Select,
+  Option
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -52,6 +54,8 @@ Vue.use(MenuItemGroup);
 Vue.use(Submenu);
 Vue.use(Input);
 Vue.use(mavonEditor);
+Vue.use(Select);
+Vue.use(Option);
 Vue.config.productionTip = false;
 
 axios.defaults.baseURL = process.env.VUE_APP_URL;
