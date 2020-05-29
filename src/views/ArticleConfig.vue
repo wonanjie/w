@@ -3,12 +3,13 @@
  * @Author: wyk
  * @Date: 2020-05-22 15:48:29
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-27 19:53:38
+ * @LastEditTime: 2020-05-28 11:32:49
 -->
 <template>
   <el-row>
     <h2>编辑文章</h2>
-    <article-card :array="dataToRender"></article-card>
+    <article-card v-loading="loading" :array="dataToRender"></article-card>
+    <!-- <el-button @click="deleteArticle()">删除</el-button> -->
   </el-row>
 </template>
 
@@ -82,25 +83,32 @@ import ArticleCard from "@/components/ArticleCard";
 //   ]
 // };
 export default {
-  //   name: "article-config",
+  name: "article-config",
   data() {
     return {
+      loading: true,
       dataToRender: []
     };
   },
   components: {
     ArticleCard
   },
+  methods: {},
   created() {
-    this.axios({
-      method: "get",
-      url: "/api/article/getArticleList"
-    }).then(res => {
-      this.dataTorender = res.data;
-      console.log(res.data);
-    });
+    getArticleList(this);
   }
 };
+function getArticleList(obj) {
+  obj
+    .axios({
+      method: "get",
+      url: "/api/article/getArticleList",
+      params: { page: 1 }
+    })
+    .then(res => {
+      obj.dataToRender = res.data.data;
+    });
+}
 </script>
 
 <style scoped lang="scss"></style>

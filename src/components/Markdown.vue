@@ -3,17 +3,22 @@
  * @Author: wyk
  * @Date: 2020-05-25 12:16:09
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-27 19:51:58
+ * @LastEditTime: 2020-05-28 10:39:47
 -->
 <template>
   <el-row>
     <div class="title-column mt20">
-      <el-select v-model="value" clearable filterable placeholder="请选择专栏">
+      <el-select
+        v-model="columnId"
+        clearable
+        filterable
+        placeholder="请选择专栏"
+      >
         <el-option
-          v-for="column in columnList"
-          :key="column.columnId"
+          v-for="(column, index) in columnList"
+          :key="index"
           :label="column.columnName"
-          :value="column.columnName"
+          :value="column.columnId"
         ></el-option>
       </el-select>
 
@@ -52,8 +57,9 @@ export default {
       title: "",
       content: "",
       flag: false,
-      value: "",
-      columnList: []
+      columnList: [],
+      columnName: "",
+      columnId: ""
     };
   },
   methods: {
@@ -66,7 +72,7 @@ export default {
           author: "沃南杰",
           title: this.title,
           content: this.content,
-          columnId: this.value
+          columnId: this.columnId
         }
       })
         .then(res => {
@@ -84,15 +90,19 @@ export default {
     }
   },
   created() {
-    this.axios({
-      method: "get",
-      url: "/api/article/getColumnList"
-    }).then(res => {
-      this.columnList = res.data;
-      console.log(res.data[0].columnId);
-    });
+    getColumnList(this);
   }
 };
+function getColumnList(obj) {
+  obj
+    .axios({
+      method: "get",
+      url: "/api/article/getColumnList"
+    })
+    .then(res => {
+      obj.columnList = res.data.data;
+    });
+}
 </script>
 <style scoped lang="scss">
 .title-column {
