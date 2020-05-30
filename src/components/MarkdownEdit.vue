@@ -1,13 +1,13 @@
 <!--
  * @Description: 
  * @Author: wyk
- * @Date: 2020-05-25 12:16:09
+ * @Date: 2020-05-29 19:52:29
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-29 19:46:51
+ * @LastEditTime: 2020-05-29 20:10:14
 -->
 <template>
   <el-row>
-    <div class="title-column mt20">
+    <el-col class="title-column">
       <el-select
         v-model="columnId"
         clearable
@@ -28,9 +28,9 @@
         v-model="title"
         clearable
       ></el-input>
-    </div>
+    </el-col>
     <mavon-editor
-      class="mt20 textarea"
+      class="mt50 textarea"
       v-model="content"
       ref="md"
       placeholder="请输入内容"
@@ -51,49 +51,36 @@
 
 <script>
 export default {
-  name: "markdown",
   data() {
     return {
-      title: "",
-      content: "",
-      flag: false,
-      columnList: [],
-      columnName: "",
-      columnId: ""
+      columnList: []
     };
   },
   methods: {
     submitArticle() {
-      this.flag = true;
       this.axios({
         method: "post",
-        url: "/api/article/newArticle",
-        data: {
-          author: "沃南杰",
-          title: this.title,
-          content: this.content,
-          columnId: this.columnId
-        }
-      })
-        .then(res => {
-          if (res.data.errno == 1) successMessage(this);
-          else warnMessage(this);
-          this.flag = false;
-        })
-        .catch(e => {
-          console.log(e);
-          alert("404 提交失败");
-        });
-    },
-    cleanUp() {
-      this.content = "";
+        url: "/api/article/updateArticle",
+        data: {}
+      }).then(res => {
+        if (res.data.errono == 1)
+          this.$message({
+            message: "修改成功",
+            type: "success"
+          });
+        else
+          this.$message({
+            message: "修改失败",
+            type: "warning"
+          });
+      });
     }
   },
   created() {
     getColumnList(this);
-  },
-  mounted() {}
+  }
 };
+
 function getColumnList(obj) {
   obj
     .axios({
@@ -104,21 +91,8 @@ function getColumnList(obj) {
       obj.columnList = res.data.data;
     });
 }
-
-function successMessage(obj) {
-  obj.$message({
-    message: "新增文章成功",
-    type: "success"
-  });
-}
-
-function warnMessage(obj) {
-  obj.$message({
-    message: "新增失败",
-    type: "warning"
-  });
-}
 </script>
+
 <style scoped lang="scss">
 .title-column {
   display: flex;

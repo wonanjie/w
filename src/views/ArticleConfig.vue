@@ -3,13 +3,18 @@
  * @Author: wyk
  * @Date: 2020-05-22 15:48:29
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-28 11:32:49
+ * @LastEditTime: 2020-05-29 16:33:09
 -->
 <template>
   <el-row>
     <h2>编辑文章</h2>
     <article-card v-loading="loading" :array="dataToRender"></article-card>
-    <!-- <el-button @click="deleteArticle()">删除</el-button> -->
+    <el-pagination
+      class="mt20"
+      background
+      leyout="prev, pager, next"
+      :total="100"
+    ></el-pagination>
   </el-row>
 </template>
 
@@ -96,6 +101,9 @@ export default {
   methods: {},
   created() {
     getArticleList(this);
+  },
+  mounted() {
+    this.loading = false;
   }
 };
 function getArticleList(obj) {

@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-28 11:26:26
+ * @LastEditTime: 2020-05-29 15:07:23
  */
 
 import Vue from "vue";
@@ -31,7 +31,10 @@ import {
   Input,
   Select,
   Option,
-  Loading
+  Loading,
+  Message,
+  Pagination,
+  Dialog
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -58,7 +61,10 @@ Vue.use(mavonEditor);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Loading);
+Vue.use(Pagination);
+Vue.use(Dialog);
 Vue.config.productionTip = false;
+Vue.prototype.$message = Message;
 
 axios.defaults.baseURL = process.env.VUE_APP_URL;
 console.log(`axios.defaults.baseURL : ${process.env.VUE_APP_URL}`);
