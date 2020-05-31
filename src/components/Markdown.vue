@@ -3,7 +3,7 @@
  * @Author: wyk
  * @Date: 2020-05-25 12:16:09
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-29 19:46:51
+ * @LastEditTime: 2020-05-30 15:22:23
 -->
 <template>
   <el-row>
@@ -78,12 +78,12 @@ export default {
         .then(res => {
           if (res.data.errno == 1) successMessage(this);
           else warnMessage(this);
-          this.flag = false;
         })
         .catch(e => {
           console.log(e);
           alert("404 提交失败");
         });
+      this.flag = false;
     },
     cleanUp() {
       this.content = "";

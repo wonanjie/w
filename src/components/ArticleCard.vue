@@ -3,7 +3,7 @@
  * @Author: wyk
  * @Date: 2020-05-22 15:53:42
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-29 21:37:13
+ * @LastEditTime: 2020-05-30 16:15:43
 -->
 <template>
   <el-row>
@@ -27,8 +27,8 @@
       <el-button type="info" plain>阅读全文 >></el-button>
     </el-card>
 
-    <el-dialog title="编辑文章" :visible.sync="seen">
-      <MarkdownEdit></MarkdownEdit>
+    <el-dialog title="编辑文章" :visible.sync="seen" destroy-on-close>
+      <MarkdownEdit :article="currentArticle"></MarkdownEdit>
     </el-dialog>
   </el-row>
 </template>
@@ -40,7 +40,8 @@ export default {
   data() {
     return {
       id: this.id,
-      seen: false
+      seen: false,
+      currentArticle: {}
     };
   },
   props: {
@@ -51,17 +52,25 @@ export default {
   },
   methods: {
     deleteArticle(deleteId) {
-      this.axios({
-        method: "post",
-        url: "/api/article/deleteArticle",
-        data: { id: deleteId }
-      }).then(res => {
-        if (res.data.errno == 1) successMessage(this);
-        else warnMessage(this);
+      this.$confirm("是否确认删除该文章", "二次确认", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(() => {
+        this.axios({
+          method: "post",
+          url: "/api/article/deleteArticle",
+          data: { id: deleteId }
+        }).then(res => {
+          // if (res.data.errno == 1) successMessage(this);
+          // else warnMessage(this);
+          res.data.errno == 1 ? successMessage(this) : warnMessage(this);
+        });
       });
     },
-    editArticle() {
+    editArticle(obj) {
       this.seen = true;
+      this.currentArticle = obj;
     }
   }
 };

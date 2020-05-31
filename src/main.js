@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-29 15:07:23
+ * @LastEditTime: 2020-05-30 15:04:08
  */
 
 import Vue from "vue";
@@ -34,7 +34,8 @@ import {
   Loading,
   Message,
   Pagination,
-  Dialog
+  Dialog,
+  MessageBox
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -65,6 +66,7 @@ Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;
+Vue.prototype.$confirm = MessageBox;
 
 axios.defaults.baseURL = process.env.VUE_APP_URL;
 console.log(`axios.defaults.baseURL : ${process.env.VUE_APP_URL}`);

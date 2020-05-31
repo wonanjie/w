@@ -3,7 +3,7 @@
  * @Author: wyk
  * @Date: 2020-05-29 19:52:29
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-29 20:10:14
+ * @LastEditTime: 2020-05-30 15:56:08
 -->
 <template>
   <el-row>
@@ -53,17 +53,31 @@
 export default {
   data() {
     return {
+      id: this.article.id,
+      columnId: this.article.columnId,
+      title: this.article.title,
+      content: this.article.content,
+      flag: false,
       columnList: []
     };
   },
+  props: {
+    article: Object
+  },
   methods: {
     submitArticle() {
+      this.flag = true;
       this.axios({
         method: "post",
         url: "/api/article/updateArticle",
-        data: {}
+        data: {
+          id: this.id,
+          title: this.title,
+          content: this.content,
+          columnId: this.columnId
+        }
       }).then(res => {
-        if (res.data.errono == 1)
+        if (res.data.errno == 1)
           this.$message({
             message: "修改成功",
             type: "success"
@@ -74,6 +88,7 @@ export default {
             type: "warning"
           });
       });
+      this.flag = false;
     }
   },
   created() {
