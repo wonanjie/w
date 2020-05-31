@@ -2,8 +2,8 @@
  * @Description:路由配置
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-27 14:56:50
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-31 14:18:00
  */
 
 import Vue from "vue";
@@ -63,6 +63,11 @@ const routes = [
         component: () => import("@/views/ColumnConfig.vue")
       }
     ]
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: () => import("@/views/Admin.vue")
   }
 ];
 const router = new VueRouter({

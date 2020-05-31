@@ -2,8 +2,8 @@
  * @Description:打包入口文件
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-30 15:04:08
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-31 17:45:46
  */
 
 import Vue from "vue";
@@ -35,7 +35,9 @@ import {
   Message,
   Pagination,
   Dialog,
-  MessageBox
+  MessageBox,
+  Table,
+  TableColumn
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -64,9 +66,12 @@ Vue.use(Option);
 Vue.use(Loading);
 Vue.use(Pagination);
 Vue.use(Dialog);
+Vue.use(Table);
+Vue.use(TableColumn);
+
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;
-Vue.prototype.$confirm = MessageBox;
+Vue.prototype.$confirm = MessageBox.confirm;
 
 axios.defaults.baseURL = process.env.VUE_APP_URL;
 console.log(`axios.defaults.baseURL : ${process.env.VUE_APP_URL}`);

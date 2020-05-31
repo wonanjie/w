@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 16:28:36
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-24 10:55:14
+ * @LastEditTime: 2020-05-31 14:11:39
 -->
 <template>
   <el-row class="link-nav">
@@ -41,7 +41,7 @@
       <el-row>
         <div>
           <i class="fa fa-search" aria-hidden="true"></i>
-          <router-link to="/administration" tag="span">搜索(admin)</router-link>
+          <router-link to="/admin" tag="span">搜索(admin)</router-link>
         </div>
       </el-row>
     </el-card>

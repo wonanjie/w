@@ -2,23 +2,29 @@
  * @Description: 
  * @Author: wyk
  * @Date: 2020-05-21 13:18:18
- * @LastEditors: wyk
- * @LastEditTime: 2020-05-25 14:54:15
+ * @LastEditors: wonanjie
+ * @LastEditTime: 2020-05-31 16:03:42
 -->
 <template>
   <el-row>
-    <h2>主页配置</h2>
-    <el-button round>Git</el-button>
-    <el-button round icon="el-icon-link" @click="newLink">新增友联</el-button>
-    <el-button round icon="el-icon-connection">管理友联</el-button>
-    <div class="popus">
-      <el-input
-        type="textarea"
-        :rows="3"
-        v-model="textarea"
-        placeholder="请输入要添加的链接"
-      ></el-input>
-    </div>
+    <el-card>
+      <el-row>
+        <i class="el-icon-house"></i>
+        <span class="ml10">主页配置</span>
+      </el-row>
+      <el-divider></el-divider>
+      <el-row type="flex" class="row-bg" justify="space-around">
+        <el-col :span="7">
+          <el-button type="info" round>Github配置</el-button>
+        </el-col>
+        <el-col :span="7">
+          <el-button type="info" round>友链配置</el-button>
+        </el-col>
+        <el-col :span="7">
+          <el-button type="info" round>Github配置</el-button>
+        </el-col>
+      </el-row>
+    </el-card>
   </el-row>
 </template>
 <script>
