@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-31 14:18:00
+ * @LastEditTime: 2020-06-01 13:06:09
  */
 
 import Vue from "vue";
@@ -36,33 +36,6 @@ const routes = [
     path: "/login",
     name: "login",
     component: () => import("@/views/Login.vue")
-  },
-  {
-    path: "/administration",
-    name: "administration",
-    component: () => import("@/views/Administration.vue"),
-    children: [
-      {
-        path: "/homeConfig",
-        name: "homeConfig",
-        component: () => import("@/components/HomeConfig.vue")
-      },
-      {
-        path: "/articleConfig",
-        name: "articleConfig",
-        component: () => import("@/views/ArticleConfig.vue")
-      },
-      {
-        path: "/newArticle",
-        name: "newArticle",
-        component: () => import("@/views/NewArticle.vue")
-      },
-      {
-        path: "/columnConfig",
-        name: "columnConfig",
-        component: () => import("@/views/ColumnConfig.vue")
-      }
-    ]
   },
   {
     path: "/admin",
