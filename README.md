@@ -356,6 +356,7 @@ setting页面打开右上角用json打开setting文件（右上角有个打开�
   - [vue-cookie](解析cookie插件)
   - [vue-router](路由管理插件)  https://router.vuejs.org/zh/
   - [vuex](状态管理插件)    https://vuex.vuejs.org/zh/guide/
+  - [marked] 
 
   ```
 ### Customize configuration
