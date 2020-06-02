@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
  * @LastEditors: wyk
- * @LastEditTime: 2020-05-31 18:03:09
+ * @LastEditTime: 2020-06-01 18:04:07
 -->
 <template>
   <el-row>
@@ -29,7 +29,10 @@
         </el-row>
         <el-row type="flex" class="row-bg" justify="center">
           <el-col :span="4"
-            ><el-button type="info" plain @click="getArticleDetail(item.id)"
+            ><el-button
+              type="info"
+              plain
+              @click="getArticleDetail(compilMarkdown(item.content), item)"
               >阅读全文 >></el-button
             ></el-col
           >
@@ -69,35 +72,37 @@ export default {
   },
   components: {},
   methods: {
-    getArticleDetail(articleId) {
-      this.axios({
-        method: "get",
-        url: "/api/article/getArticleDetail",
-        params: { id: articleId }
-      }).then(res => {
-        console.log(res);
+    getArticleDetail(articleStr, article) {
+      this.$router.push({
+        name: "articleDetail",
+        params: { articleStr: articleStr, id: article.id, title: article.title }
       });
+      // this.axios({
+      //   method: "get",
+      //   url: "/api/article/getArticleDetail",
+      //   params: { id: articleId }
+      // }).then(res => {
+      //   console.log(res);
+      // });
     },
     compilMarkdown(str) {
       return marked(str, { sanitize: true });
     },
-    changePage() {}
+    changePage() {},
+    getArticleList(pageNum) {
+      this.axios({
+        method: "get",
+        url: "/api/article/getArticleList",
+        params: { page: pageNum }
+      }).then(res => {
+        this.articles = res.data.data;
+      });
+    }
   },
   created() {
-    getArticleList(this, 1);
+    this.getArticleList(1);
   }
 };
-function getArticleList(obj, pageNum) {
-  obj
-    .axios({
-      method: "get",
-      url: "/api/article/getArticleList",
-      params: { page: pageNum }
-    })
-    .then(res => {
-      obj.articles = res.data.data;
-    });
-}
 </script>
 
 <style lang="scss" scoped>
