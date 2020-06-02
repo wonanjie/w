@@ -3,12 +3,11 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-01 18:04:07
+ * @LastEditTime: 2020-06-02 20:49:36
 -->
 <template>
   <el-row>
     <el-row class="article-list">
-      <!-- <Article :array="dataToRender"></Article> -->
       <el-card class="card" v-for="(item, index) in articles" :key="index">
         <el-row class="tc fz24">{{ item.title }}</el-row>
         <el-row class="information tc mt5 fz12">
@@ -18,21 +17,18 @@
           <el-divider direction="vertical"></el-divider>
           <i class="fa fa-folder-o" aria-hidden="true"></i>
           <span class="ml5 mr5">专栏</span>
-          <span>前端</span>
+          <span>{{ item.columnName }}</span>
           <el-divider direction="vertical"></el-divider>
           <i class="fa fa-commenting-o" aria-hidden="true"></i>
           <span class="ml5 mr5">评论数</span>
           <span>{{ item.comments }}</span>
         </el-row>
         <el-row class="mt40 mb40">
-          <p class="content" v-html="compilMarkdown(item.content)"></p>
+          <p class="content">{{ removeTags(compilMarkdown(item.content)) }}</p>
         </el-row>
         <el-row type="flex" class="row-bg" justify="center">
           <el-col :span="4"
-            ><el-button
-              type="info"
-              plain
-              @click="getArticleDetail(compilMarkdown(item.content), item)"
+            ><el-button type="info" plain @click="getArticleDetail(item)"
               >阅读全文 >></el-button
             ></el-col
           >
@@ -67,26 +63,23 @@ export default {
   name: "article-list",
   data() {
     return {
-      articles: []
+      articles: [],
+      page: 1
     };
   },
   components: {},
   methods: {
-    getArticleDetail(articleStr, article) {
+    getArticleDetail(article) {
       this.$router.push({
         name: "articleDetail",
-        params: { articleStr: articleStr, id: article.id, title: article.title }
+        params: { id: article.id }
       });
-      // this.axios({
-      //   method: "get",
-      //   url: "/api/article/getArticleDetail",
-      //   params: { id: articleId }
-      // }).then(res => {
-      //   console.log(res);
-      // });
     },
     compilMarkdown(str) {
       return marked(str, { sanitize: true });
+    },
+    removeTags(str) {
+      return str.replace(/<\/?.+?\/?>/g, "");
     },
     changePage() {},
     getArticleList(pageNum) {
@@ -95,12 +88,17 @@ export default {
         url: "/api/article/getArticleList",
         params: { page: pageNum }
       }).then(res => {
-        this.articles = res.data.data;
+        this.articles = res.data.data.reverse();
       });
     }
   },
   created() {
     this.getArticleList(1);
+    Date.prototype.toString = function() {
+      return (
+        this.getFullYear() + "/" + (this.getMonth() + 1) + "/" + this.getDate()
+      );
+    };
   }
 };
 </script>
