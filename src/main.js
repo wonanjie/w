@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-02 16:48:40
+ * @LastEditTime: 2020-06-02 20:36:13
  */
 
 import Vue from "vue";
@@ -13,6 +13,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import mavonEditor from "mavon-editor";
+
 import {
   Container,
   Main,
@@ -68,6 +69,7 @@ Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.use(Table);
 Vue.use(TableColumn);
+// Vue.use(marked);
 
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;

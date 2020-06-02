@@ -2,8 +2,8 @@
  * @Description:路由配置
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-01 13:06:09
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-06-01 17:44:45
  */
 
 import Vue from "vue";
@@ -26,7 +26,7 @@ const routes = [
         component: ArticleList
       },
       {
-        path: "/articleDetail",
+        path: "/articleDetail/:id",
         name: "articleDetail",
         component: () => import("@/views/ArticleDetail.vue")
       }
