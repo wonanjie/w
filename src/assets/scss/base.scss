@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-20 12:49:28
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-21 15:40:41
+ * @LastEditTime: 2020-06-02 17:00:16
  */
 
 /*===============变量==============*/
@@ -14,6 +14,7 @@ $colorSign:#222222; //主页背景字体重点风格颜色
 $colorIcon:#555555; //菜单文本图标默认颜色
 $colorDivider:#eeeeee; //边框分割线颜色
 $colorTextSecondary:#909399; //全项目次要字体颜色
+$colorColumnHover:#C0C4CC; //专栏hover颜色
 
 /*固定颜色值*/
 $WHITE:white;
@@ -34,9 +35,13 @@ $WHITE:white;
     font-weight: bold;
 }
 
-//显示隐藏
+//块级元素
 .block {
     display: block;
+}
+//行内块元素
+.inline-block {
+    display: inline-block;
 }
 
 .hide {

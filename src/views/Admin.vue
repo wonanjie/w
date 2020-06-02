@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-31 14:00:08
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-01 15:41:07
+ * @LastEditTime: 2020-06-02 18:15:58
 -->
 <template>
   <el-container class="admin mt20 mb20">
@@ -113,11 +113,11 @@ export default {
         }
       }).then(res => {
         this.articleList = res.data.data;
-        console.log(this.articleList);
       });
     },
     newArticle() {
       this.newFlag = true;
+      console.log(document.querySelectorAll(".el-table__row"));
     },
     //新增文章弹框关闭，为1时刷新列表
     closeNewArticle(type) {
@@ -156,16 +156,7 @@ export default {
               type: "success",
               message: "删除成功!"
             });
-            this.axios({
-              method: "get",
-              url: "/api/article/getArticleList",
-              params: {
-                page: 1
-              }
-            }).then(res => {
-              this.articleList = res.data.data;
-              console.log(this.articleList);
-            });
+            this.initTable();
           });
         })
         .catch(() => {

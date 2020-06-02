@@ -3,17 +3,13 @@
  * @Author: wyk
  * @Date: 2020-05-29 19:52:29
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-01 15:34:17
+ * @LastEditTime: 2020-06-02 17:48:25
 -->
 <template>
   <el-row>
     <el-col class="title-column">
-      <el-select
-        v-model="columnId"
-        clearable
-        filterable
-        placeholder="请选择专栏"
-      >
+      <el-select v-model="columnId" placeholder="请选择专栏">
+        <el-option label="-----" value="null"> </el-option>
         <el-option
           v-for="(column, index) in columnList"
           :key="index"
@@ -52,12 +48,12 @@ export default {
   name: "markdown",
   data() {
     return {
-      id: null,
-      columnId: null,
-      title: "",
-      content: "",
-      flag: false,
-      columnList: []
+      id: null, //文章id
+      columnId: null, //专栏id
+      title: "", //文章标题
+      content: "", //文章内容
+      flag: false, //节流标记
+      columnList: [] //专栏数据
     };
   },
   props: {

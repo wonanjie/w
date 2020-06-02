@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-05-31 17:45:46
+ * @LastEditTime: 2020-06-02 16:48:40
  */
 
 import Vue from "vue";
@@ -72,6 +72,7 @@ Vue.use(TableColumn);
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;
 Vue.prototype.$confirm = MessageBox.confirm;
+Vue.prototype.$prompt = MessageBox.prompt;
 
 axios.defaults.baseURL = process.env.VUE_APP_URL;
 console.log(`axios.defaults.baseURL : ${process.env.VUE_APP_URL}`);
