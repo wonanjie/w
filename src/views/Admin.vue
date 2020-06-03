@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-31 14:00:08
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-02 18:15:58
+ * @LastEditTime: 2020-06-03 18:55:35
 -->
 <template>
   <el-container class="admin mt20 mb20">
@@ -12,47 +12,93 @@
       <column-config class="mt50"></column-config>
     </el-aside>
     <el-main>
-      <el-row>
-        <el-button @click="newArticle()">写文章</el-button>
+      <el-row type="flex" justify="space-between" class="search">
+        <el-col :span="10">
+          <el-date-picker
+            class="date"
+            v-model="date"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            value-format="timestamp"
+            clearable
+          ></el-date-picker>
+        </el-col>
+        <el-col :span="8">
+          <el-input
+            placeholder="请输入关键字"
+            v-model="keyword"
+            clearable
+          ></el-input>
+        </el-col>
+        <el-col :span="2">
+          <el-button type="success" @click="search()">搜索</el-button>
+        </el-col>
+        <el-col :span="3">
+          <el-button
+            type="danger"
+            @click="newArticle()"
+            icon="el-icon-edit-outline"
+            >写文章</el-button
+          >
+        </el-col>
       </el-row>
-      <el-table :data="articleList" style="width: 100%" height="800" border>
-        <el-table-column prop="id" label="文章ID" align="center">
-        </el-table-column>
-        <el-table-column prop="title" label="文章标题" align="center">
-        </el-table-column>
+
+      <el-table
+        :data="articleList"
+        style="width: 100%"
+        :height="tableH"
+        class="mt10"
+        border
+      >
+        <el-table-column
+          prop="id"
+          label="文章ID"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="title"
+          label="文章标题"
+          align="center"
+        ></el-table-column>
         <el-table-column
           show-overflow-tooltip
           prop="content"
           label="文章内容"
           align="center"
-        >
-        </el-table-column>
+        ></el-table-column>
         <el-table-column
           show-overflow-tooltip
           prop="columnName"
           label="专栏"
           align="center"
           sortable
-        >
-        </el-table-column>
+        ></el-table-column>
         <el-table-column
           prop="createTime"
           label="创建日期"
           sortable
+          :formatter="timeFormatter"
           align="center"
-        >
-        </el-table-column>
+        ></el-table-column>
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
-            <el-button size="mini" @click="handleEdit(scope.row)"
-              >编辑</el-button
-            >
-            <el-button
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.row)"
-              >删除</el-button
-            >
+            <el-row>
+              <el-col :span="12">
+                <el-button size="mini" @click="handleEdit(scope.row)"
+                  >编辑</el-button
+                >
+              </el-col>
+              <el-col :span="12">
+                <el-button
+                  size="mini"
+                  type="danger"
+                  @click="handleDelete(scope.row)"
+                  >删除</el-button
+                >
+              </el-col>
+            </el-row>
           </template>
         </el-table-column>
       </el-table>
@@ -93,14 +139,22 @@ export default {
   components: { HomeConfig, ColumnConfig, Markdown },
   data() {
     return {
+      date: null, //搜索日期
+      keyword: "", //搜索关键字
       articleList: [], //文章列表数据
       editFlag: false, //编辑文章弹框标识
       newFlag: false, //新增文章弹框表示
-      editArticle: null //编辑文章对象
+      editArticle: null, //编辑文章对象
+      tableH: window.innerHeight * 0.8
     };
   },
   created() {
     this.initTable();
+  },
+  watch: {
+    articleList() {
+      console.log(document.querySelectorAll(".el-table__row"));
+    }
   },
   methods: {
     //刷新列表
@@ -117,7 +171,6 @@ export default {
     },
     newArticle() {
       this.newFlag = true;
-      console.log(document.querySelectorAll(".el-table__row"));
     },
     //新增文章弹框关闭，为1时刷新列表
     closeNewArticle(type) {
@@ -165,6 +218,24 @@ export default {
             message: "已取消删除"
           });
         });
+    },
+    search() {
+      this.axios({
+        method: "get",
+        url: "/api/article/search",
+        params: {
+          startDate: this.date ? this.date[0] : null,
+          endDate: this.date ? this.date[1] : null,
+          keyword: this.keyword
+        }
+      }).then(res => {
+        this.articleList = res.data.data;
+      });
+    },
+    //日期格式化
+    timeFormatter(row, column) {
+      console.log(row, column);
+      return row.createTime;
     }
   }
 };
@@ -176,6 +247,14 @@ export default {
   width: 100%;
   height: 100%;
   padding: 20px;
+}
+.search {
+  .el-button {
+    width: 100%;
+  }
+  .date {
+    width: 100%;
+  }
 }
 </style>
 

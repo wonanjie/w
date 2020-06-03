@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-02 20:36:13
+ * @LastEditTime: 2020-06-03 16:26:50
  */
 
 import Vue from "vue";
@@ -38,7 +38,8 @@ import {
   Dialog,
   MessageBox,
   Table,
-  TableColumn
+  TableColumn,
+  DatePicker
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -69,6 +70,7 @@ Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(DatePicker);
 // Vue.use(marked);
 
 Vue.config.productionTip = false;
