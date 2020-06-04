@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-01 17:44:45
+ * @LastEditTime: 2020-06-03 16:04:20
  */
 
 import Vue from "vue";
@@ -18,10 +18,10 @@ const routes = [
     path: "/",
     name: "home",
     component: Home,
-    redirect: "/articleList",
+    redirect: "/articleList/1",
     children: [
       {
-        path: "/articleList",
+        path: "/articleList/:page",
         name: "articleList",
         component: ArticleList
       },

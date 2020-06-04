@@ -3,17 +3,17 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-02 20:49:36
+ * @LastEditTime: 2020-06-03 16:39:10
 -->
 <template>
   <el-row>
     <el-row class="article-list">
       <el-card class="card" v-for="(item, index) in articles" :key="index">
-        <el-row class="tc fz24">{{ item.title }}</el-row>
+        <el-row class="tc fz24 title">{{ item.title }}</el-row>
         <el-row class="information tc mt5 fz12">
           <i class="fa fa-calendar-o" aria-hidden="true"></i>
           <span class="ml5 mr5">发表于</span>
-          <span>{{ new Date(item.createTime) }}</span>
+          <span>{{ formatTime(item.createTime) }}</span>
           <el-divider direction="vertical"></el-divider>
           <i class="fa fa-folder-o" aria-hidden="true"></i>
           <span class="ml5 mr5">专栏</span>
@@ -24,7 +24,11 @@
           <span>{{ item.comments }}</span>
         </el-row>
         <el-row class="mt40 mb40">
-          <p class="content">{{ removeTags(compilMarkdown(item.content)) }}</p>
+          <p class="content">
+            {{
+              removeTags(compilMarkdown(item.content).substr(0, 225)) + "..."
+            }}
+          </p>
         </el-row>
         <el-row type="flex" class="row-bg" justify="center">
           <el-col :span="4"
@@ -40,8 +44,9 @@
       class="mt20"
       background
       layout="prev,pager,next"
-      :total="100"
-      @click="changePage()"
+      :current-page.sync="currentPage"
+      :page-count="totalPage"
+      @current-change="changePage"
     ></el-pagination>
   </el-row>
 </template>
@@ -64,7 +69,10 @@ export default {
   data() {
     return {
       articles: [],
-      page: 1
+
+      content: "",
+      currentPage: Number,
+      totalPage: 1
     };
   },
   components: {},
@@ -81,24 +89,46 @@ export default {
     removeTags(str) {
       return str.replace(/<\/?.+?\/?>/g, "");
     },
-    changePage() {},
     getArticleList(pageNum) {
       this.axios({
         method: "get",
         url: "/api/article/getArticleList",
         params: { page: pageNum }
       }).then(res => {
+        // console.log(this.totalPage);
+        this.totalPage = res.data.totalPage;
+        // console.log(this.totalPage);
         this.articles = res.data.data.reverse();
       });
+    },
+    //日期输出格式化
+    formatTime(millisecond) {
+      let time = new Date(millisecond);
+      return (
+        time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate()
+      );
+    },
+    changePage(page) {
+      // console.log(page);
+      this.$router.push({
+        name: "articleList",
+        params: { page: page }
+      });
+      console.log(page);
     }
   },
+  // beforeCreate() {
+  //   this.currentPage = parseInt(this.$route.params.page);
+  // },
   created() {
-    this.getArticleList(1);
-    Date.prototype.toString = function() {
-      return (
-        this.getFullYear() + "/" + (this.getMonth() + 1) + "/" + this.getDate()
-      );
-    };
+    this.currentPage = parseInt(this.$route.params.page);
+    console.log(this.currentPage);
+    this.getArticleList(this.$route.params.page);
+  },
+  watch: {
+    $route() {
+      this.articles = this.getArticleList(this.currentPage);
+    }
   }
 };
 </script>
@@ -111,10 +141,14 @@ export default {
   }
 }
 .content {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  color: $colorTextSecondary;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // display: -webkit-box;
+  // -webkit-box-orient: vertical;
+  // -webkit-line-clamp: 3;
+}
+.title {
+  color: $colorSign;
 }
 </style>

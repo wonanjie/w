@@ -3,16 +3,16 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 14:37:50
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-02 19:28:28
+ * @LastEditTime: 2020-06-03 15:23:28
 -->
 <template>
   <el-row>
     <el-row>
-      <p class="tc fz24 mt20">{{ article.title }}</p>
+      <p class="tc fz26 mt20 title">{{ article.title }}</p>
       <el-row class="information tc mt5 fz12">
         <i class="fa fa-calendar-o" aria-hidden="true"></i>
         <span class="ml5 mr5">发表于</span>
-        <span>{{ new Date(article.createTime) }}</span>
+        <span>{{ formatTime(article.createTime) }}</span>
         <el-divider direction="vertical"></el-divider>
         <i class="fa fa-folder-o" aria-hidden="true"></i>
         <span class="ml5 mr5">专栏</span>
@@ -52,6 +52,12 @@ export default {
   methods: {
     compilMarkdown() {
       return marked(this.article.content, { sanitize: true });
+    },
+    formatTime(millisecond) {
+      let time = new Date(millisecond);
+      return (
+        time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate()
+      );
     }
   },
   created() {
@@ -64,12 +70,11 @@ export default {
       this.content = this.compilMarkdown();
       console.log();
     });
-    Date.prototype.toString = function() {
-      return (
-        this.getFullYear() + "/" + (this.getMonth() + 1) + "/" + this.getDate()
-      );
-    };
   }
 };
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.title {
+  color: $colorSign;
+}
+</style>
