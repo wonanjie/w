@@ -3,12 +3,17 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-03 16:39:10
+ * @LastEditTime: 2020-06-04 16:22:15
 -->
 <template>
   <el-row>
     <el-row class="article-list">
-      <el-card class="card" v-for="(item, index) in articles" :key="index">
+      <el-card
+        class="card"
+        shadow="always"
+        v-for="(item, index) in articles"
+        :key="index"
+      >
         <el-row class="tc fz24 title">{{ item.title }}</el-row>
         <el-row class="information tc mt5 fz12">
           <i class="fa fa-calendar-o" aria-hidden="true"></i>
@@ -122,7 +127,7 @@ export default {
   // },
   created() {
     this.currentPage = parseInt(this.$route.params.page);
-    console.log(this.currentPage);
+    // console.log(this.currentPage);
     this.getArticleList(this.$route.params.page);
   },
   watch: {

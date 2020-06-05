@@ -3,10 +3,10 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 14:37:50
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-03 15:23:28
+ * @LastEditTime: 2020-06-04 16:22:40
 -->
 <template>
-  <el-row>
+  <el-card>
     <el-row>
       <p class="tc fz26 mt20 title">{{ article.title }}</p>
       <el-row class="information tc mt5 fz12">
@@ -23,9 +23,9 @@
         <span>{{ article.comments }}</span>
       </el-row>
     </el-row>
-    <hr class="mt20" />
-    <el-row class="content mt60" v-html="content"> </el-row>
-  </el-row>
+    <!-- <hr class="mt20" /> -->
+    <el-row class="content mt60 ml25" v-html="content"> </el-row>
+  </el-card>
 </template>
 <script>
 import marked from "marked";
@@ -76,5 +76,8 @@ export default {
 <style scoped lang="scss">
 .title {
   color: $colorSign;
+}
+.information {
+  color: $colorTextSecondary;
 }
 </style>

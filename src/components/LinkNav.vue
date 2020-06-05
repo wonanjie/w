@@ -2,14 +2,14 @@
  * @Description: 右上角导航
  * @Author: wonanjie
  * @Date: 2020-05-19 16:28:36
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-01 12:51:05
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-06-04 16:51:19
 -->
 <template>
   <el-row class="link-nav">
     <el-card class="card pt15 pb15" :body-style="{ padding: '0px' }">
       <el-row>
-        <div>
+        <div @click="goHome()">
           <i class="fa fa-home" aria-hidden="true"></i>
           <span>主页</span>
         </div>
@@ -21,7 +21,7 @@
         </div>
       </el-row>
       <el-row>
-        <div>
+        <div @click="goArchives()">
           <i class="fa fa-archive" aria-hidden="true"></i>
           <span>归档</span>
         </div>
@@ -49,7 +49,15 @@
 </template>
 <script>
 export default {
-  name: "link-nav"
+  name: "link-nav",
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    },
+    goArchives() {
+      this.$router.push("/archives/1");
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

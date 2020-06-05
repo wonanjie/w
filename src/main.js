@@ -2,8 +2,8 @@
  * @Description:打包入口文件
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
- * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-03 16:26:50
+ * @LastEditors: wyk
+ * @LastEditTime: 2020-06-04 16:39:10
  */
 
 import Vue from "vue";
@@ -39,7 +39,9 @@ import {
   MessageBox,
   Table,
   TableColumn,
-  DatePicker
+  DatePicker,
+  Timeline,
+  TimelineItem
 } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
@@ -71,6 +73,8 @@ Vue.use(Dialog);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(DatePicker);
+Vue.use(Timeline);
+Vue.use(TimelineItem);
 // Vue.use(marked);
 
 Vue.config.productionTip = false;

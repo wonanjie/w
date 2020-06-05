@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-13 13:43:21
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-03 16:04:20
+ * @LastEditTime: 2020-06-04 16:30:02
  */
 
 import Vue from "vue";
@@ -29,6 +29,11 @@ const routes = [
         path: "/articleDetail/:id",
         name: "articleDetail",
         component: () => import("@/views/ArticleDetail.vue")
+      },
+      {
+        path: "/archives/:page",
+        name: "archives",
+        component: () => import("@/views/Archives.vue")
       }
     ]
   },
