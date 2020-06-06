@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-31 14:00:08
  * @LastEditors: wonanjie
- * @LastEditTime: 2020-06-03 18:55:35
+ * @LastEditTime: 2020-06-04 22:16:29
 -->
 <template>
   <el-container class="admin mt20 mb20">
@@ -150,11 +150,6 @@ export default {
   },
   created() {
     this.initTable();
-  },
-  watch: {
-    articleList() {
-      console.log(document.querySelectorAll(".el-table__row"));
-    }
   },
   methods: {
     //刷新列表
