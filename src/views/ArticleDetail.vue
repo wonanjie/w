@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 14:37:50
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-04 16:22:40
+ * @LastEditTime: 2020-06-05 22:59:29
 -->
 <template>
   <el-card>
@@ -24,7 +24,7 @@
       </el-row>
     </el-row>
     <!-- <hr class="mt20" /> -->
-    <el-row class="content mt60 ml25" v-html="content"> </el-row>
+    <el-row class="content fz15 mt60 ml25" v-html="content"> </el-row>
   </el-card>
 </template>
 <script>
@@ -79,5 +79,9 @@ export default {
 }
 .information {
   color: $colorTextSecondary;
+}
+.content {
+  letter-spacing: 1px;
+  line-height: 140%;
 }
 </style>

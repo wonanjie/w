@@ -3,7 +3,7 @@
  * @Author: wonanjie
  * @Date: 2020-05-19 15:40:08
  * @LastEditors: wyk
- * @LastEditTime: 2020-06-04 16:22:15
+ * @LastEditTime: 2020-06-05 23:05:13
 -->
 <template>
   <el-row>
@@ -77,7 +77,7 @@ export default {
 
       content: "",
       currentPage: Number,
-      totalPage: 1
+      totalPage: Number
     };
   },
   components: {},
@@ -100,7 +100,7 @@ export default {
         url: "/api/article/getArticleList",
         params: { page: pageNum }
       }).then(res => {
-        // console.log(this.totalPage);
+        // console.log(res.data);
         this.totalPage = res.data.totalPage;
         // console.log(this.totalPage);
         this.articles = res.data.data.reverse();
